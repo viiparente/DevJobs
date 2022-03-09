@@ -18,6 +18,12 @@
         }
 
         // POST api/job-vacancies/4/applications
+        /// <summary>
+        /// Adiciona Candidato para a vaga de emprego!
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(int id, AddJobApplicationInputModel model)
         {

@@ -19,6 +19,10 @@
         }
 
         // GET api/job-vacancies
+        /// <summary>
+        /// Busca todas as vagas
+        /// </summary>
+        /// <returns>List jobVacancies</returns>
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -28,6 +32,11 @@
         }
 
         // GET api/job-vacancies/4
+        /// <summary>
+        /// Buscar vaga de emprego por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>JobVacancy</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -40,6 +49,22 @@
         }
 
         // POST api/job-vacancies
+        /// <summary>
+        /// Cadastrar uma vaga de emprego.
+        /// </summary>
+        /// <remarks>
+        ///   {
+        ///   "title": "Vaga .NET SR",
+        ///   "description": "Requisitos: Desenvolver API em .NET",
+        ///   "company": "ParenteConsultoria",
+        ///   "isRemote": true,
+        ///   "salaryRange": "8000-15000"
+        ///   }
+        /// </remarks>
+        /// <param name="model">Dados de Vaga</param>
+        /// <returns>Objeto recém criado.</returns>
+        /// <response code="201">Sucesso</response>
+        /// <response code="400">Dados inválidos.</response>
         [HttpPost]
         public IActionResult Post(AddJobVacancyInputModel model)
         {
@@ -60,6 +85,12 @@
         }
 
         // PUT api/job-vacancies/4
+        /// <summary>
+        /// Atualiza a vaga de emprego!
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Put(int id, UpdateJobVacancyInputModel model)
         {
