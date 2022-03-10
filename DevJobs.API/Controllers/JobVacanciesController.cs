@@ -6,6 +6,7 @@
     using DevJobs.API.Persistence.Repositories;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
+    using Serilog;
 
     [Route("api/job-vacancies")]
     [ApiController]
@@ -68,6 +69,7 @@
         [HttpPost]
         public IActionResult Post(AddJobVacancyInputModel model)
         {
+            Log.Information("Post executado.");
             var jobVacancy = new JobVacancy(
                 model.Title,
                 model.Description,
@@ -94,6 +96,7 @@
         [HttpPut("{id}")]
         public IActionResult Put(int id, UpdateJobVacancyInputModel model)
         {
+            Log.Information("Put executado.");
             var jobVacancy = _repository.GetById(id);
 
             if (jobVacancy == null)
